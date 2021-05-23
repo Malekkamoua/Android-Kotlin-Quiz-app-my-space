@@ -41,7 +41,6 @@ class AboutFragment : Fragment(), RecyclerViewAdapter.ClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_about, container, false)
-        //buildDisplayData()
         getAllData()
         initRecyclerView(view)
 
@@ -52,15 +51,6 @@ class AboutFragment : Fragment(), RecyclerViewAdapter.ClickListener {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         adapter = RecyclerViewAdapter(listData, this)
         recyclerView.adapter = adapter
-    }
-
-    private fun buildDisplayData(){
-
-        listData.add(DataModel("Tunisia","testing desc","img"))
-        listData.add(DataModel("France","testing desc","img"))
-        listData.add(DataModel("Morocco","testing desc","img"))
-        listData.add(DataModel("Algeria","testing desc","img"))
-        listData.add(DataModel("Egypt","testing desc","img"))
     }
 
     override fun onItemClick(dataModel: DataModel) {
