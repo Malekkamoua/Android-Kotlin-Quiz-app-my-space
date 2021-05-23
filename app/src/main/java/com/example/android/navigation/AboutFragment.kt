@@ -26,11 +26,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.DataModel
 import com.example.myapplication.RecyclerViewAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AboutFragment : Fragment(), RecyclerViewAdapter.ClickListener {
 
     private lateinit var adapter: RecyclerViewAdapter
-    val listData: ArrayList<DataModel> = ArrayList()
+    var listData: ArrayList<DataModel> = ArrayList()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +41,8 @@ class AboutFragment : Fragment(), RecyclerViewAdapter.ClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_about, container, false)
-        buildDisplayData()
+        //buildDisplayData()
+        getAllData()
         initRecyclerView(view)
 
         return view
@@ -51,15 +55,36 @@ class AboutFragment : Fragment(), RecyclerViewAdapter.ClickListener {
     }
 
     private fun buildDisplayData(){
-        listData.add(DataModel("Tunisia"))
-        listData.add(DataModel("France"))
-        listData.add(DataModel("Morocco"))
-        listData.add(DataModel("Algeria"))
-        listData.add(DataModel("Egypt"))
+
+        listData.add(DataModel("Tunisia","testing desc","img"))
+        listData.add(DataModel("France","testing desc","img"))
+        listData.add(DataModel("Morocco","testing desc","img"))
+        listData.add(DataModel("Algeria","testing desc","img"))
+        listData.add(DataModel("Egypt","testing desc","img"))
     }
 
     override fun onItemClick(dataModel: DataModel) {
         TODO("Not yet implemented")
     }
 
+    fun getAllData(){
+        Api.retrofitService.getAllData().enqueue(object: Callback<List<DataModel>>{
+            override fun onResponse(
+                    call: Call<List<DataModel>>,
+                    response: Response<List<DataModel>>
+            ) {
+                if(response.isSuccessful){
+                    Log.d("Response", "onResponse: ${response.body()}")
+                    if (response.isSuccessful){
+                        listData  = (response.body() as ArrayList<DataModel>?)!!
+                        Log.d("Response", "list size : ${listData.size}")
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
 }

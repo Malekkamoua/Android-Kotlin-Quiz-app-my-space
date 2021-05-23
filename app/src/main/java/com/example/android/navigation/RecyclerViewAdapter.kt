@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,11 +20,12 @@ class RecyclerViewAdapter(val listeData: List<DataModel>, val clickListener:Clic
 
     class MyViewHolder(view: View): RecyclerView.ViewHolder(view){
         var titleTextView: TextView = view.findViewById(R.id.titleTextView)
-
+        var descTextView: TextView = view.findViewById(R.id.descTextView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.titleTextView.text = listeData.get(position).title
+        holder.descTextView.text = listeData.get(position).description
     }
 
     interface  ClickListener{
