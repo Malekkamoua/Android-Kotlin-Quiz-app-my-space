@@ -23,7 +23,7 @@
         android:id="@+id/gameOverConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gameOverBackground">
+        android:background="@drawable/background">
 
         <ImageView
             android:id="@+id/gameOverFragment"
@@ -42,8 +42,8 @@
 
         <Button
             android:id="@+id/tryAgainButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
             android:layout_marginStart="@dimen/vertical_margin"
             android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginEnd="@dimen/vertical_margin"
@@ -52,6 +52,7 @@
             android:paddingEnd="@dimen/button_padding"
             android:text="Rejouer ?"
             android:textColor="?colorAccent"
+            android:background="@color/white"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

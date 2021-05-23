@@ -41,6 +41,9 @@ class RecyclerViewAdapter(val listeData: List<DataModel>, val clickListener:Clic
             "Uranus" -> R.drawable.uranus
             "Venus" -> R.drawable.venus
             "Terre" -> R.drawable.terre
+            "Neptune" -> R.drawable.neptune
+            "Saturne" -> R.drawable.saturne
+            "Pluton" -> R.drawable.pluton
 
             else -> R.drawable.noimage
         }

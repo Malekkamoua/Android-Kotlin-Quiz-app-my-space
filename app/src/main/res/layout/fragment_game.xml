@@ -16,7 +16,7 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    android:background="@color/black"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.GameFragment">
 
@@ -34,6 +34,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout"
+            android:background="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -56,6 +57,7 @@
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:layout_marginBottom="@dimen/vertical_margin"
+                android:textColor="@color/white"
                 android:fontFamily="sans-serif"
                 android:text="@{game.currentQuestion.text}"
                 android:textSize="@dimen/question_text_size"
@@ -85,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:checked="true"
+                    android:textColor="@color/white"
                     android:text="@{game.answers[0]}"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Blue" />
@@ -94,6 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
+                    android:textColor="@color/white"
                     android:text="@{game.answers[1]}"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Green" />
@@ -104,6 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:text="@{game.answers[2]}"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/answer_text_size"
                     tools:text="Yellow" />
 
@@ -111,13 +116,13 @@
 
             <Button
                 android:id="@+id/submitButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="@dimen/question_horizontal_margin"
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:text="@string/submit_button"
-                android:backgroundTint="@android:color/holo_blue_bright"
+                android:backgroundTint="@color/colorAccent"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/button_text_size"
