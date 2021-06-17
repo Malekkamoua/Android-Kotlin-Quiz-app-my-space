@@ -22,21 +22,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_rules.*
 
 
 class RulesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val user = arguments!!.getString("user")
-
-        if (user != null) {
-            Log.d("data", user)
-        }
-
+        var value1 = arguments?.getString("user", "email")
 
         // Inflate the layout for this fragment
-        return inflater.inflate(com.example.android.navigation.R.layout.fragment_rules, container, false)
+        val view =  inflater.inflate(com.example.android.navigation.R.layout.fragment_rules, container, false)
+        val username = view.findViewById<TextView>(com.example.android.navigation.R.id.username)
+
+        if (value1 != null) {
+            username?.text = value1
+            Log.d("I am in rules", value1)
+        }
+        return view;
     }
 }

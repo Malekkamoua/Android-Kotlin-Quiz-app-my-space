@@ -23,14 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = intent
 
-        if (intent != null) {
-            val info = intent.getStringExtra("info")
-            Log.d("info :", "$info")
-        } else {
-            Log.d("info :", "null")
-        }
 
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
@@ -54,9 +47,16 @@ class MainActivity : AppCompatActivity() {
     private fun replaceFragment(fragement: Fragment) {
         if (fragement != null) {
 
+            val intent = intent
             val b = Bundle()
-            b.putString("user", "malek kamoua")
-            fragement.arguments = b
+
+            if (intent != null) {
+                val info = intent.getStringExtra("info")
+                b.putString("user", info)
+                fragement.arguments = b
+            } else {
+                Log.d("info :", "null")
+            }
 
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.myNavHostFragment, fragement)
